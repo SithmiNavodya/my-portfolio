@@ -13,7 +13,7 @@ const PROJECTS = [
     tag: "Microservices · Group Project",
     year: "2026",
     desc: "Built the Doctor Management and Telemedicine microservices within a Spring Boot & React platform — featuring real-time video consultations via Jitsi Meet, doctor availability scheduling, appointment handling, and digital prescriptions — backed by PostgreSQL, containerised with Docker and Kubernetes.",
-    stack: ["Spring Boot", "React", "Docker", "Kubernetes", "REST APIs", "PostgreSQL" , "Jitsi Meet"],
+    stack: ["Spring Boot", "React + TypeScript", "Docker", "Kubernetes", "REST APIs", "PostgreSQL" , "Jitsi Meet"],
     accent: "#6366F1",
     size: "large",
     github: "https://github.com/Ramidu-Theekshana/DocLink-healthcare-platform",
@@ -243,7 +243,7 @@ function Home({ go }: { go: (p: Page) => void }) {
               onMouseLeave={e=>{e.currentTarget.style.background="transparent"; e.currentTarget.style.color="#0A66C2"; e.currentTarget.style.borderColor="rgba(10,102,194,0.25)";}}>
               in LinkedIn
             </a>
-            <a href="/Sithmi_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
+            <a href="/sithmi_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
               display:"inline-flex", alignItems:"center", gap:7,
               background:"#6366F1", color:"#fff",
               border:"none", borderRadius:50, padding:"14px 28px",
@@ -361,7 +361,7 @@ function About() {
           <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:17, lineHeight:1.85, color:"#5A5856", maxWidth:600, margin:0 }}>
            Year 3 Software Engineering undergraduate at SLIIT, actively building full-stack web systems across academic and individual projects using Java, the MERN stack, and Spring Boot. I contribute across the entire development lifecycle — from database design and REST API development to frontend integration</p>
           <div style={{ marginTop: "2rem" }}>
-            <a href="/Sithmi_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
+            <a href="/sithmi_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
               display:"inline-flex", alignItems:"center", gap:8,
               background:"#0F0F0E", color:"#fff", border:"none",
               borderRadius:50, padding:"12px 28px", fontSize:14,
