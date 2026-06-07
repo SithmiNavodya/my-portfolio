@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import profilePic from "./assets/me.jpeg";
 
 type Page = "home" | "about" | "projects" | "contact";
@@ -813,7 +813,7 @@ export default function Portfolio() {
   const [page, setPage] = useState<Page>("home");
   const go = (p: Page) => { setPage(p); window.scrollTo({ top: 0, behavior:"smooth" }); };
 
-  const map: Record<Page, JSX.Element> = {
+  const map: Record<Page, React.ReactNode> = {
     home: <Home go={go} />,
     about: <About />,
     projects: <Projects />,
