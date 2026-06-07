@@ -342,35 +342,57 @@ function About() {
       <div style={{ maxWidth:1160, margin:"0 auto" }}>
 
         {/* ── HEADER ── */}
-        <div style={{ marginBottom:"4rem", animation:"fadeUp 0.6s ease both" }}>
-          <span style={{
-            fontFamily:"monospace", fontSize:11, fontWeight:700, color:"#6366F1",
-            letterSpacing:"0.18em", textTransform:"uppercase",
-            background:"rgba(99,102,241,0.07)", border:"1px solid rgba(99,102,241,0.18)",
-            borderRadius:50, padding:"5px 14px", display:"inline-block", marginBottom:"1.25rem",
-          }}>About</span>
-          <h2 style={{
-            fontFamily:"'DM Sans',sans-serif", fontWeight:800,
-            fontSize:"clamp(2.8rem,5.5vw,4.5rem)", lineHeight:1.0,
-            letterSpacing:"-2.5px", color:"#0F0F0E", margin:"0 0 1.5rem",
+        <div style={{ 
+          marginBottom:"4rem", 
+          animation:"fadeUp 0.6s ease both",
+          display: "grid",
+          gridTemplateColumns: "1fr 340px",
+          gap: "4rem",
+          alignItems: "center"
+        }}>
+          <div>
+            <span style={{
+              fontFamily:"monospace", fontSize:11, fontWeight:700, color:"#6366F1",
+              letterSpacing:"0.18em", textTransform:"uppercase",
+              background:"rgba(99,102,241,0.07)", border:"1px solid rgba(99,102,241,0.18)",
+              borderRadius:50, padding:"5px 14px", display:"inline-block", marginBottom:"1.25rem",
+            }}>About</span>
+            <h2 style={{
+              fontFamily:"'DM Sans',sans-serif", fontWeight:800,
+              fontSize:"clamp(2.8rem,5.5vw,4.5rem)", lineHeight:1.0,
+              letterSpacing:"-2.5px", color:"#0F0F0E", margin:"0 0 1.5rem",
+            }}>
+              Sithmi <br />
+              <span style={{ color:"#6366F1" }}>Navodya</span>
+            </h2>
+            <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:17, lineHeight:1.85, color:"#5A5856", maxWidth:600, margin:0 }}>
+             Year 3 Software Engineering undergraduate at SLIIT, actively building full-stack web systems across academic and individual projects using Java, the MERN stack, and Spring Boot. I contribute across the entire development lifecycle — from database design and REST API development to frontend integration</p>
+            <div style={{ marginTop: "2rem" }}>
+              <a href="/sithmi_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
+                display:"inline-flex", alignItems:"center", gap:8,
+                background:"#0F0F0E", color:"#fff", border:"none",
+                borderRadius:50, padding:"12px 28px", fontSize:14,
+                fontFamily:"'DM Sans',sans-serif", fontWeight:700, textDecoration:"none",
+                transition:"all 0.2s",
+              }}
+                onMouseEnter={e=>{e.currentTarget.style.background="#6366F1"; e.currentTarget.style.boxShadow="0 10px 30px rgba(99,102,241,0.35)";}}
+                onMouseLeave={e=>{e.currentTarget.style.background="#0F0F0E"; e.currentTarget.style.boxShadow="none";}}>
+                ↓ Download Full CV (PDF)
+              </a>
+            </div>
+          </div>
+
+          <div style={{
+            width: "340px", height: "420px", borderRadius: 24,
+            overflow: "hidden", position: "relative",
+            boxShadow: "0 20px 40px rgba(99,102,241,0.15)",
+            border: "1px solid rgba(162, 162, 175, 0.1)",
           }}>
-            Sithmi <br />
-            <span style={{ color:"#6366F1" }}>Navodya</span>
-          </h2>
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:17, lineHeight:1.85, color:"#5A5856", maxWidth:600, margin:0 }}>
-           Year 3 Software Engineering undergraduate at SLIIT, actively building full-stack web systems across academic and individual projects using Java, the MERN stack, and Spring Boot. I contribute across the entire development lifecycle — from database design and REST API development to frontend integration</p>
-          <div style={{ marginTop: "2rem" }}>
-            <a href="/sithmi_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
-              display:"inline-flex", alignItems:"center", gap:8,
-              background:"#0F0F0E", color:"#fff", border:"none",
-              borderRadius:50, padding:"12px 28px", fontSize:14,
-              fontFamily:"'DM Sans',sans-serif", fontWeight:700, textDecoration:"none",
-              transition:"all 0.2s",
-            }}
-              onMouseEnter={e=>{e.currentTarget.style.background="#6366F1"; e.currentTarget.style.boxShadow="0 10px 30px rgba(99,102,241,0.35)";}}
-              onMouseLeave={e=>{e.currentTarget.style.background="#0F0F0E"; e.currentTarget.style.boxShadow="none";}}>
-              ↓ Download Full CV (PDF)
-            </a>
+            <img 
+              src={profilePic} 
+              alt="Sithmi Navodya" 
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+            />
           </div>
         </div>
 
