@@ -206,8 +206,7 @@ function Home({ go }: { go: (p: Page) => void }) {
 
           {/* One-liner — NOT a repeated bio */}
           <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:17, lineHeight:1.75, color:"#5A5856", maxWidth:460, marginBottom:"2.8rem" }}>
-            Year 3 SE undergraduate at <strong style={{ color:"#0F0F0E" }}>SLIIT</strong> — I architect and ship production-grade web systems end to end.
-          </p>
+            Year 3 SE undergraduate at <strong style={{ color:"#0F0F0E" }}>SLIIT</strong> — with experience in full-stack development. Seeking an internship to apply my skills in React, Spring Boot, and databases to build real-world applications.</p>
 
           {/* CTAs */}
           <div style={{ display:"flex", gap:"0.85rem", flexWrap:"wrap" }}>
