@@ -275,7 +275,12 @@ function Home({ go }: { go: (p: Page) => void }) {
             <img 
               src={profilePic} 
               alt="Sithmi Navodya" 
-              style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+              draggable={false}
+              style={{ 
+                width: "100%", height: "100%", objectFit: "cover",
+                pointerEvents: "none",
+                userSelect: "none"
+              }} 
             />
           </div>
 
@@ -394,7 +399,12 @@ function About() {
             <img 
               src={profilePic} 
               alt="Sithmi Navodya" 
-              style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+              draggable={false}
+              style={{ 
+                width: "100%", height: "100%", objectFit: "cover",
+                pointerEvents: "none",
+                userSelect: "none"
+              }} 
             />
           </div>
         </div>
@@ -597,7 +607,12 @@ function Projects() {
                     <img 
                       src={p.image} 
                       alt={p.name} 
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+                      draggable={false}
+                      style={{ 
+                        width: "100%", height: "100%", objectFit: "cover",
+                        pointerEvents: "none", // Removes browser-added edit/search buttons
+                        userSelect: "none"
+                      }} 
                     />
                   </div>
                 )}
