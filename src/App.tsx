@@ -659,9 +659,9 @@ function Projects() {
 
               {/* Project Screenshot */}
               <div style={{
-                width: "100%", height: 140, borderRadius: 12, overflow: "hidden",
+                width: "100%", height: 180, borderRadius: 12, overflow: "hidden",
                 marginBottom: "1rem", border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.15)" : "#eee"}`,
-                background: hov === p.id ? "rgba(255,255,255,0.1)" : "#f9f9f9"
+                background: "#f9f9f9"
               }}>
                 <img 
                   src={p.image} 
@@ -669,8 +669,8 @@ function Projects() {
                   style={{ 
                     width: "100%", 
                     height: "100%", 
-                    objectFit: p.id === "04" ? "contain" : "cover",
-                    background: p.id === "04" ? "#fff" : "transparent"
+                    objectFit: "cover",
+                    objectPosition: "center"
                   }} 
                 />
               </div>
