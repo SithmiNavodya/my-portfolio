@@ -272,10 +272,8 @@ function Home({ go }: { go: (p: Page) => void }) {
             zIndex:2, position:"relative",
             border: "6px solid #fff",
           }}>
-            {/* Using backgroundImage to prevent browser visual search overlays */}
+            {/* Shielded container to prevent browser visual search overlays */}
             <div 
-              role="img"
-              aria-label="Sithmi Navodya"
               data-visual-search="false"
               style={{ 
                 width: "100%", height: "100%", 
@@ -283,9 +281,11 @@ function Home({ go }: { go: (p: Page) => void }) {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 userSelect: "none",
-                pointerEvents: "none"
+                position: "relative"
               }} 
-            />
+            >
+              <div style={{ position: "absolute", inset: 0, zIndex: 10, pointerEvents: "auto", background: "transparent" }} />
+            </div>
           </div>
 
           {/* Dashed orbit ring */}
@@ -400,10 +400,8 @@ function About() {
             boxShadow: "0 20px 40px rgba(99,102,241,0.15)",
             border: "1px solid rgba(162, 162, 175, 0.1)",
           }}>
-            {/* Using backgroundImage to prevent browser visual search overlays */}
+            {/* Shielded container to prevent browser visual search overlays */}
             <div 
-              role="img"
-              aria-label="Sithmi Navodya"
               data-visual-search="false"
               style={{ 
                 width: "100%", height: "100%", 
@@ -411,9 +409,11 @@ function About() {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 userSelect: "none",
-                pointerEvents: "none"
+                position: "relative"
               }} 
-            />
+            >
+              <div style={{ position: "absolute", inset: 0, zIndex: 10, pointerEvents: "auto", background: "transparent" }} />
+            </div>
           </div>
         </div>
 
@@ -613,10 +613,8 @@ function Projects() {
                     background: "#f9f9f9",
                     position: "relative"
                   }}>
-                    {/* Using backgroundImage to prevent browser visual search overlays */}
+                    {/* Shielded container to prevent browser visual search overlays */}
                     <div 
-                      role="img"
-                      aria-label={p.name}
                       data-visual-search="false"
                       style={{ 
                         width: "100%", height: "100%", 
@@ -624,9 +622,11 @@ function Projects() {
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         userSelect: "none",
-                        pointerEvents: "none"
+                        position: "relative"
                       }} 
-                    />
+                    >
+                       <div style={{ position: "absolute", inset: 0, zIndex: 10, pointerEvents: "auto", background: "transparent" }} />
+                    </div>
                   </div>
                 )}
 

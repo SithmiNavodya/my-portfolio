@@ -1,11 +1,17 @@
 /* Disable Edge/Browser Visual Search and Hover Menus */
-img, div[role="img"] {
+img, div, span {
     visual-search-override: hidden !important;
     -ms-visual-search: hidden !important;
 }
 
+[data-visual-search="false"] {
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* More technical suppression for Edge */
 body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
 }
