@@ -31,7 +31,7 @@ const PROJECTS = [
     size: "medium",
     github: "https://github.com/Ramidu-Theekshana/VitaSense-Health_Care_System",
     live: "https://vita-sense-health-care-system.vercel.app/",
-    image: "https://via.placeholder.com/600x400?text=VitaSense+Healthcare+App",
+    image: "/Vitasence.png",
   },
   {
     id: "03",
@@ -44,7 +44,7 @@ const PROJECTS = [
     size: "medium",
     github: "https://github.com/SithmiNavodya/vehicle-service-center",
     live: null,
-    image: "https://via.placeholder.com/600x400?text=Vehicle+Service+System",
+    image: "/VSC_inv.png",
   },
   {
     id: "04",
@@ -57,7 +57,7 @@ const PROJECTS = [
     size: "medium",
     github: "https://github.com/Ramidu-Theekshana/Smart-Tea-Factory-Management-System",
     live: null,
-    image: "https://via.placeholder.com/600x400?text=Tea+Factory+System",
+    image: "/TeaFactory.jpg",
   },
   {
     id: "05",
