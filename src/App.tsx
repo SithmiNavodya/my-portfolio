@@ -242,7 +242,7 @@ function Home({ go }: { go: (p: Page) => void }) {
               onMouseLeave={e=>{e.currentTarget.style.background="transparent"; e.currentTarget.style.color="#0A66C2"; e.currentTarget.style.borderColor="rgba(10,102,194,0.25)";}}>
               in LinkedIn
             </a>
-            <a href="/sithmi_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
+            <a href="/Sithmi%20Navodya_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
               display:"inline-flex", alignItems:"center", gap:7,
               background:"#6366F1", color:"#fff",
               border:"none", borderRadius:50, padding:"14px 28px",
@@ -368,7 +368,7 @@ function About() {
             <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:17, lineHeight:1.85, color:"#5A5856", maxWidth:600, margin:0 }}>
              Year 3 Software Engineering undergraduate at SLIIT, actively building full-stack web systems across academic and individual projects using Java, the MERN stack, and Spring Boot. I contribute across the entire development lifecycle — from database design and REST API development to frontend integration</p>
             <div style={{ marginTop: "2rem" }}>
-              <a href="/sithmi_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
+              <a href="/Sithmi%20Navodya_resume.pdf" download="Sithmi_Navodya_CV.pdf" style={{
                 display:"inline-flex", alignItems:"center", gap:8,
                 background:"#0F0F0E", color:"#fff", border:"none",
                 borderRadius:50, padding:"12px 28px", fontSize:14,
