@@ -18,7 +18,7 @@ const PROJECTS = [
     size: "large",
     github: "https://github.com/Ramidu-Theekshana/DocLink-healthcare-platform",
     live: null,
-    image: "https://via.placeholder.com/1200x700?text=DocLink+Healthcare+Platform",
+    image: "/docklink.jpeg",
   },
   {
     id: "02",
