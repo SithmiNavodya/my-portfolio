@@ -631,12 +631,12 @@ function Projects() {
               onMouseEnter={() => setHov(p.id)}
               onMouseLeave={() => setHov(null)}
               style={{
-                background: hov===p.id ? p.accent : "#fff",
-                border:`1.5px solid ${hov===p.id ? p.accent : "#ECEAE5"}`,
+                background: hov===p.id ? "#0F0F0E" : "#fff",
+                border:`1.5px solid ${hov===p.id ? "#0F0F0E" : "#ECEAE5"}`,
                 borderRadius:20, padding:"1.75rem",
                 transition:"all 0.25s cubic-bezier(0.34,1.2,0.64,1)",
                 transform: hov===p.id ? "translateY(-4px)" : "translateY(0)",
-                boxShadow: hov===p.id ? `0 20px 48px ${p.accent}30` : "0 2px 12px rgba(0,0,0,0.03)",
+                boxShadow: hov===p.id ? `0 20px 48px rgba(0,0,0,0.15)` : "0 2px 12px rgba(0,0,0,0.03)",
                 cursor:"default",
               }}>
               <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"0.85rem" }}>
@@ -687,10 +687,10 @@ function Projects() {
               <div style={{ display: "flex", gap: "1rem", marginBottom: "1.25rem" }}>
                 {p.github && (
                   <a href={p.github} target="_blank" rel="noreferrer" style={{
-                    textDecoration: "none", color: hov === p.id ? "#fff" : p.accent,
+                    textDecoration: "none", color: hov === p.id ? "#fff" : "#6366F1",
                     fontFamily: "monospace", fontSize: 11, fontWeight: 700,
                     display: "flex", alignItems: "center", gap: 5,
-                    borderBottom: `1.2px solid ${hov === p.id ? "rgba(255,255,255,0.4)" : `${p.accent}40`}`,
+                    borderBottom: `1.2px solid ${hov === p.id ? "rgba(255,255,255,0.4)" : `rgba(99,102,241,0.2)`}`,
                     paddingBottom: 1, transition: "all 0.2s"
                   }}>
                     ⎇ GitHub
@@ -698,6 +698,29 @@ function Projects() {
                 )}
                 {p.live && (
                   <a href={p.live} target="_blank" rel="noreferrer" style={{
+                    textDecoration: "none", color: hov === p.id ? "#fff" : "#6366F1",
+                    fontFamily: "monospace", fontSize: 11, fontWeight: 700,
+                    display: "flex", alignItems: "center", gap: 5,
+                    borderBottom: `1.2px solid ${hov === p.id ? "rgba(255,255,255,0.4)" : `rgba(99,102,241,0.2)`}`,
+                    paddingBottom: 1, transition: "all 0.2s"
+                  }}>
+                    ✦ Live Demo
+                  </a>
+                )}
+              </div>
+
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+                {p.stack.map(s => (
+                  <span key={s} style={{
+                    background: hov===p.id ? "rgba(255,255,255,0.15)" : "#F8F8F6",
+                    border:`1px solid ${hov===p.id ? "rgba(255,255,255,0.2)" : "#E8E5E0"}`,
+                    borderRadius:4, padding:"2px 9px", fontSize:10,
+                    fontFamily:"monospace", color: hov===p.id ? "#fff" : "#666", fontWeight:700,
+                  }}>{s}</span>
+                ))}
+              </div>
+            </div>
+          ))}
                     textDecoration: "none", color: hov === p.id ? "#fff" : p.accent,
                     fontFamily: "monospace", fontSize: 11, fontWeight: 700,
                     display: "flex", alignItems: "center", gap: 5,
