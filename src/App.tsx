@@ -529,231 +529,97 @@ function Projects() {
         {/* BENTO GRID */}
         <div style={{ 
           display:"grid", 
-          gridTemplateColumns:"1.4fr 1fr", 
-          gap:"1.25rem", 
+          gridTemplateColumns:"repeat(2, 1fr)", 
+          gap:"1.45rem", 
           alignItems: "start",
           animation:"scaleIn 0.5s 0.1s ease both" 
         }}>
-
-          {/* Column 1 */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-            {/* BIG card (DocLink) */}
-            <div
-              onMouseEnter={() => setHov("01")}
+          {PROJECTS.map(p => (
+            <div key={p.id}
+              onMouseEnter={() => setHov(p.id)}
               onMouseLeave={() => setHov(null)}
               style={{
-                background: hov === "01" ? "#0F0F0E" : "#fff",
-                border: `1.5px solid ${hov === "01" ? "#0F0F0E" : "#ECEAE5"}`,
-                borderRadius: 24, padding: "2.5rem",
-                transition: "all 0.3s cubic-bezier(0.34,1.2,0.64,1)",
-                transform: hov === "01" ? "scale(1.01)" : "scale(1)",
-                boxShadow: hov === "01" ? "0 32px 80px rgba(0,0,0,0.15)" : "0 2px 16px rgba(0,0,0,0.04)",
-                cursor: "default", position: "relative", overflow: "hidden",
-                alignSelf: "start", width: "100%"
+                gridColumn: p.id === "01" ? "1 / 3" : "auto", // Big card takes full width
+                background: hov===p.id ? "#0F0F0E" : "#fff",
+                border:`1.5px solid ${hov===p.id ? "#0F0F0E" : "#ECEAE5"}`,
+                borderRadius: p.id === "01" ? 24 : 20, 
+                padding: p.id === "01" ? "2.5rem" : "1.75rem",
+                transition:"all 0.3s cubic-bezier(0.34,1.2,0.64,1)",
+                transform: hov===p.id ? (p.id === "01" ? "scale(1.005)" : "translateY(-4px)") : "none",
+                boxShadow: hov===p.id ? `0 24px 60px rgba(0,0,0,0.12)` : "0 2px 14px rgba(0,0,0,0.03)",
+                cursor:"default", position: "relative", overflow: "hidden"
               }}>
+              
+              {/* Background orb for all cards */}
               <div style={{
-                position: "absolute", bottom: -60, right: -60,
-                width: 280, height: 280, borderRadius: "50%",
-                background: hov === "01" ? "rgba(99,102,241,0.15)" : "rgba(99,102,241,0.04)",
+                position: "absolute", bottom: -50, right: -50,
+                width: p.id === "01" ? 280 : 160, height: p.id === "01" ? 280 : 160, borderRadius: "50%",
+                background: hov === p.id ? "rgba(99,102,241,0.12)" : "rgba(99,102,241,0.03)",
                 transition: "background 0.3s",
               }} />
+
               <div style={{ position: "relative", zIndex: 1 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "2rem" }}>
+                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom: p.id === "01" ? "1.5rem" : "0.85rem" }}>
+                  <span style={{ 
+                    fontFamily:"monospace", fontSize:10, fontWeight:700, 
+                    color: hov===p.id ? "rgba(255,255,255,0.4)" : "#CCC", 
+                    textTransform:"uppercase", letterSpacing:"0.1em" 
+                  }}>
+                    {p.id} · {p.year}
+                  </span>
                   <span style={{
-                    fontFamily: "monospace", fontSize: 10, fontWeight: 700,
-                    color: hov === "01" ? "rgba(255,255,255,0.3)" : "#CCC",
-                    letterSpacing: "0.1em", textTransform: "uppercase",
-                  }}>{big.id} · {big.year}</span>
-                  <span style={{
-                    background: hov === "01" ? "rgba(99,102,241,0.3)" : "rgba(99,102,241,0.08)",
-                    border: `1px solid ${hov === "01" ? "rgba(99,102,241,0.5)" : "rgba(99,102,241,0.2)"}`,
-                    borderRadius: 50, padding: "3px 12px", fontSize: 10,
-                    fontFamily: "monospace", fontWeight: 700,
-                    color: hov === "01" ? "#A5B4FC" : "#6366F1",
-                  }}>{big.tag}</span>
+                    background: hov===p.id ? "rgba(255,255,255,0.15)" : "#F8F8F6",
+                    border:`1px solid ${hov===p.id ? "rgba(255,255,255,0.2)" : "#E8E5E0"}`,
+                    borderRadius:50, padding:"3px 11px", fontSize:10,
+                    fontFamily:"monospace", fontWeight:700,
+                    color: hov===p.id ? "#fff" : "#888",
+                  }}>{p.tag}</span>
                 </div>
+
                 <h3 style={{
-                  fontFamily: "'DM Sans',sans-serif", fontSize: 26, fontWeight: 800,
-                  color: hov === "01" ? "#fff" : "#0F0F0E",
-                  margin: "0 0 1rem", lineHeight: 1.15, letterSpacing: "-0.8px",
-                }}>{big.name}</h3>
+                  fontFamily:"'DM Sans',sans-serif", 
+                  fontSize: p.id === "01" ? 28 : 17, 
+                  fontWeight:800,
+                  color: hov===p.id ? "#fff" : "#0F0F0E",
+                  margin:"0 0 0.8rem", lineHeight:1.2, letterSpacing: p.id === "01" ? "-0.8px" : "-0.3px",
+                }}>{p.name}</h3>
 
                 {/* Project Screenshot */}
-                <div style={{
-                  width: "100%", height: 240, borderRadius: 16, overflow: "hidden",
-                  marginBottom: "1.5rem", border: `1px solid ${hov === "01" ? "rgba(255,255,255,0.1)" : "#eee"}`,
-                  background: hov === "01" ? "rgba(255,255,255,0.05)" : "#f9f9f9"
-                }}>
-                  <img src={big.image || undefined} alt={big.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                </div>
+                {p.image && (
+                  <div style={{
+                    width: "100%", 
+                    height: p.id === "01" ? 260 : 180, 
+                    borderRadius: 14, overflow: "hidden",
+                    marginBottom: "1.25rem", 
+                    border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.1)" : "#eee"}`,
+                    background: "#f9f9f9"
+                  }}>
+                    <img 
+                      src={p.image} 
+                      alt={p.name} 
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+                    />
+                  </div>
+                )}
 
                 <p style={{
-                  fontFamily: "'DM Sans',sans-serif", fontSize: 15, lineHeight: 1.75,
-                  color: hov === "01" ? "rgba(255,255,255,0.6)" : "#777",
-                  margin: "0 0 1.5rem",
-                }}>{big.desc}</p>
+                  fontFamily: "'DM Sans',sans-serif", 
+                  fontSize: p.id === "01" ? 15 : 13, 
+                  lineHeight: 1.7,
+                  color: hov === p.id ? "rgba(255,255,255,0.7)" : "#777",
+                  margin: "0 0 1.25rem",
+                  maxWidth: p.id === "01" ? 800 : "none"
+                }}>{p.desc}</p>
 
                 {/* Links */}
-                <div style={{ display: "flex", gap: "1.5rem", marginBottom: "2rem" }}>
-                  {big.github && (
-                    <a href={big.github} target="_blank" rel="noreferrer" style={{
-                      textDecoration: "none", color: hov === "01" ? "#fff" : "#6366F1",
-                      fontFamily: "monospace", fontSize: 13, fontWeight: 700,
-                      display: "flex", alignItems: "center", gap: 6,
-                      borderBottom: `1.5px solid ${hov === "01" ? "rgba(255,255,255,0.3)" : "rgba(99,102,241,0.2)"}`,
+                <div style={{ display: "flex", gap: "1.25rem", marginBottom: "1.5rem" }}>
+                  {p.github && (
+                    <a href={p.github} target="_blank" rel="noreferrer" style={{
+                      textDecoration: "none", color: hov === p.id ? "#fff" : "#6366F1",
+                      fontFamily: "monospace", fontSize: p.id === "01" ? 13 : 11, fontWeight: 700,
+                      display: "flex", alignItems: "center", gap: 5,
+                      borderBottom: `1.2px solid ${hov === p.id ? "rgba(255,255,255,0.4)" : `rgba(99,102,241,0.2)`}`,
                       paddingBottom: 2, transition: "all 0.2s"
-                    }}>
-                      ⎇ GitHub
-                    </a>
-                  )}
-                </div>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-                  {big.stack.map(s => (
-                    <span key={s} style={{
-                      background: hov === "01" ? "rgba(255,255,255,0.08)" : "#F8F8F6",
-                      border: `1px solid ${hov === "01" ? "rgba(255,255,255,0.12)" : "#E8E5E0"}`,
-                      borderRadius: 6, padding: "4px 11px", fontSize: 11,
-                      fontFamily: "monospace", color: hov === "01" ? "#A5B4FC" : "#555", fontWeight: 700,
-                    }}>{s}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Other cards in Column 1 (Vehicle, Laundry) */}
-            {[small[1], small[3]].map(p => (
-              <div key={p.id}
-                onMouseEnter={() => setHov(p.id)}
-                onMouseLeave={() => setHov(null)}
-                style={{
-                  background: hov === p.id ? "#0F0F0E" : "#fff",
-                  border: `1.5px solid ${hov === p.id ? "#0F0F0E" : "#ECEAE5"}`,
-                  borderRadius: 20, padding: "1.75rem",
-                  transition: "all 0.25s cubic-bezier(0.34,1.2,0.64,1)",
-                  transform: hov === p.id ? "translateY(-4px)" : "translateY(0)",
-                  boxShadow: hov === p.id ? `0 20px 48px rgba(0,0,0,0.15)` : "0 2px 12px rgba(0,0,0,0.03)",
-                  cursor: "default",
-                }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.85rem" }}>
-                  <span style={{ fontFamily: "monospace", fontSize: 10, fontWeight: 700, color: hov === p.id ? "rgba(255,255,255,0.5)" : "#CCC", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-                    {p.id} · {p.year}
-                  </span>
-                  <span style={{
-                    background: hov === p.id ? "rgba(255,255,255,0.2)" : "#F8F8F6",
-                    border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.3)" : "#E8E5E0"}`,
-                    borderRadius: 50, padding: "2px 10px", fontSize: 10,
-                    fontFamily: "monospace", fontWeight: 700,
-                    color: hov === p.id ? "#fff" : "#888",
-                  }}>{p.tag}</span>
-                </div>
-                <h3 style={{
-                  fontFamily: "'DM Sans',sans-serif", fontSize: 16, fontWeight: 800,
-                  color: hov === p.id ? "#fff" : "#0F0F0E",
-                  margin: "0 0 0.6rem", lineHeight: 1.25, letterSpacing: "-0.3px",
-                }}>{p.name}</h3>
-
-                {p.image && (
-                  <div style={{
-                    width: "100%", height: 180, borderRadius: 12, overflow: "hidden",
-                    marginBottom: "1rem", border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.15)" : "#eee"}`,
-                    background: "#f9f9f9"
-                  }}>
-                    <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-                  </div>
-                )}
-
-                <p style={{
-                  fontFamily: "'DM Sans',sans-serif", fontSize: 13, lineHeight: 1.65,
-                  color: hov === p.id ? "rgba(255,255,255,0.75)" : "#888",
-                  margin: "0 0 1rem",
-                }}>{p.desc}</p>
-
-                <div style={{ display: "flex", gap: "1rem", marginBottom: "1.25rem" }}>
-                  {p.github && (
-                    <a href={p.github} target="_blank" rel="noreferrer" style={{
-                      textDecoration: "none", color: hov === p.id ? "#fff" : "#6366F1",
-                      fontFamily: "monospace", fontSize: 11, fontWeight: 700,
-                      display: "flex", alignItems: "center", gap: 5,
-                      borderBottom: `1.2px solid ${hov === p.id ? "rgba(255,255,255,0.4)" : `rgba(99,102,241,0.2)`}`,
-                      paddingBottom: 1, transition: "all 0.2s"
-                    }}>
-                      ⎇ GitHub
-                    </a>
-                  )}
-                </div>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-                  {p.stack.map(s => (
-                    <span key={s} style={{
-                      background: hov === p.id ? "rgba(255,255,255,0.15)" : "#F8F8F6",
-                      border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.2)" : "#E8E5E0"}`,
-                      borderRadius: 4, padding: "2px 9px", fontSize: 10,
-                      fontFamily: "monospace", color: hov === p.id ? "#fff" : "#666", fontWeight: 700,
-                    }}>{s}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Column 2 */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-            {[small[0], small[2]].map(p => (
-              <div key={p.id}
-                onMouseEnter={() => setHov(p.id)}
-                onMouseLeave={() => setHov(null)}
-                style={{
-                  background: hov === p.id ? "#0F0F0E" : "#fff",
-                  border: `1.5px solid ${hov === p.id ? "#0F0F0E" : "#ECEAE5"}`,
-                  borderRadius: 20, padding: "1.75rem",
-                  transition: "all 0.25s cubic-bezier(0.34,1.2,0.64,1)",
-                  transform: hov === p.id ? "translateY(-4px)" : "translateY(0)",
-                  boxShadow: hov === p.id ? `0 20px 48px rgba(0,0,0,0.15)` : "0 2px 12px rgba(0,0,0,0.03)",
-                  cursor: "default",
-                }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.85rem" }}>
-                  <span style={{ fontFamily: "monospace", fontSize: 10, fontWeight: 700, color: hov === p.id ? "rgba(255,255,255,0.5)" : "#CCC", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-                    {p.id} · {p.year}
-                  </span>
-                  <span style={{
-                    background: hov === p.id ? "rgba(255,255,255,0.2)" : "#F8F8F6",
-                    border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.3)" : "#E8E5E0"}`,
-                    borderRadius: 50, padding: "2px 10px", fontSize: 10,
-                    fontFamily: "monospace", fontWeight: 700,
-                    color: hov === p.id ? "#fff" : "#888",
-                  }}>{p.tag}</span>
-                </div>
-                <h3 style={{
-                  fontFamily: "'DM Sans',sans-serif", fontSize: 16, fontWeight: 800,
-                  color: hov === p.id ? "#fff" : "#0F0F0E",
-                  margin: "0 0 0.6rem", lineHeight: 1.25, letterSpacing: "-0.3px",
-                }}>{p.name}</h3>
-
-                {p.image && (
-                  <div style={{
-                    width: "100%", height: 180, borderRadius: 12, overflow: "hidden",
-                    marginBottom: "1rem", border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.15)" : "#eee"}`,
-                    background: "#f9f9f9"
-                  }}>
-                    <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-                  </div>
-                )}
-
-                <p style={{
-                  fontFamily: "'DM Sans',sans-serif", fontSize: 13, lineHeight: 1.65,
-                  color: hov === p.id ? "rgba(255,255,255,0.75)" : "#888",
-                  margin: "0 0 1rem",
-                }}>{p.desc}</p>
-
-                <div style={{ display: "flex", gap: "1rem", marginBottom: "1.25rem" }}>
-                  {p.github && (
-                    <a href={p.github} target="_blank" rel="noreferrer" style={{
-                      textDecoration: "none", color: hov === p.id ? "#fff" : "#6366F1",
-                      fontFamily: "monospace", fontSize: 11, fontWeight: 700,
-                      display: "flex", alignItems: "center", gap: 5,
-                      borderBottom: `1.2px solid ${hov === p.id ? "rgba(255,255,255,0.4)" : `rgba(99,102,241,0.2)`}`,
-                      paddingBottom: 1, transition: "all 0.2s"
                     }}>
                       ⎇ GitHub
                     </a>
@@ -761,29 +627,29 @@ function Projects() {
                   {p.live && (
                     <a href={p.live} target="_blank" rel="noreferrer" style={{
                       textDecoration: "none", color: hov === p.id ? "#fff" : "#6366F1",
-                      fontFamily: "monospace", fontSize: 11, fontWeight: 700,
+                      fontFamily: "monospace", fontSize: p.id === "01" ? 13 : 11, fontWeight: 700,
                       display: "flex", alignItems: "center", gap: 5,
                       borderBottom: `1.2px solid ${hov === p.id ? "rgba(255,255,255,0.4)" : `rgba(99,102,241,0.2)`}`,
-                      paddingBottom: 1, transition: "all 0.2s"
+                      paddingBottom: 2, transition: "all 0.2s"
                     }}>
                       ✦ Live Demo
                     </a>
                   )}
                 </div>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
                   {p.stack.map(s => (
                     <span key={s} style={{
-                      background: hov === p.id ? "rgba(255,255,255,0.15)" : "#F8F8F6",
-                      border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.2)" : "#E8E5E0"}`,
-                      borderRadius: 4, padding: "2px 9px", fontSize: 10,
-                      fontFamily: "monospace", color: hov === p.id ? "#fff" : "#666", fontWeight: 700,
+                      background: hov===p.id ? "rgba(255,255,255,0.12)" : "#F8F8F6",
+                      border:`1px solid ${hov===p.id ? "rgba(255,255,255,0.15)" : "#E8E5E0"}`,
+                      borderRadius:5, padding:"3px 10px", fontSize:10,
+                      fontFamily:"monospace", color: hov===p.id ? "#fff" : "#666", fontWeight:700,
                     }}>{s}</span>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
