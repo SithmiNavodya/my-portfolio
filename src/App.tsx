@@ -527,7 +527,13 @@ function Projects() {
         </div>
 
         {/* BENTO GRID */}
-        <div style={{ display:"grid", gridTemplateColumns:"1.4fr 1fr", gridTemplateRows:"auto auto", gap:"1.25rem", animation:"scaleIn 0.5s 0.1s ease both" }}>
+        <div style={{ 
+          display:"grid", 
+          gridTemplateColumns:"1.4fr 1fr", 
+          gap:"1.25rem", 
+          alignItems: "start",
+          animation:"scaleIn 0.5s 0.1s ease both" 
+        }}>
 
           {/* BIG card — spans 2 rows */}
           <div
