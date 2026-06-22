@@ -519,9 +519,6 @@ function About() {
 function Projects() {
   const [hov, setHov] = useState<string | null>(null);
 
-  const big = PROJECTS[0];
-  const small = PROJECTS.slice(1);
-
   return (
     <div style={{ minHeight:"100vh", padding:"110px 3rem 80px", position:"relative", zIndex:1 }}>
       <div style={{ maxWidth:1160, margin:"0 auto" }}>
