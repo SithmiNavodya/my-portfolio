@@ -663,7 +663,16 @@ function Projects() {
                 marginBottom: "1rem", border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.15)" : "#eee"}`,
                 background: hov === p.id ? "rgba(255,255,255,0.1)" : "#f9f9f9"
               }}>
-                <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img 
+                  src={p.image} 
+                  alt={p.name} 
+                  style={{ 
+                    width: "100%", 
+                    height: "100%", 
+                    objectFit: p.id === "04" ? "contain" : "cover",
+                    background: p.id === "04" ? "#fff" : "transparent"
+                  }} 
+                />
               </div>
 
               <p style={{
