@@ -272,18 +272,18 @@ function Home({ go }: { go: (p: Page) => void }) {
             zIndex:2, position:"relative",
             border: "6px solid #fff",
           }}>
-            <img 
-              src={profilePic} 
-              alt="Sithmi Navodya" 
-              draggable={false}
+            {/* Using backgroundImage to prevent browser visual search overlays */}
+            <div 
+              role="img"
+              aria-label="Sithmi Navodya"
               style={{ 
-                width: "100%", height: "100%", objectFit: "cover",
-                pointerEvents: "none",
+                width: "100%", height: "100%", 
+                backgroundImage: `url(${profilePic})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
                 userSelect: "none"
               }} 
             />
-            {/* Shield to block browser-added hover buttons */}
-            <div style={{ position: "absolute", inset: 0, zIndex: 10 }} />
           </div>
 
           {/* Dashed orbit ring */}
@@ -398,18 +398,18 @@ function About() {
             boxShadow: "0 20px 40px rgba(99,102,241,0.15)",
             border: "1px solid rgba(162, 162, 175, 0.1)",
           }}>
-            <img 
-              src={profilePic} 
-              alt="Sithmi Navodya" 
-              draggable={false}
+            {/* Using backgroundImage to prevent browser visual search overlays */}
+            <div 
+              role="img"
+              aria-label="Sithmi Navodya"
               style={{ 
-                width: "100%", height: "100%", objectFit: "cover",
-                pointerEvents: "none",
+                width: "100%", height: "100%", 
+                backgroundImage: `url(${profilePic})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
                 userSelect: "none"
               }} 
             />
-            {/* Shield to block browser-added hover buttons */}
-            <div style={{ position: "absolute", inset: 0, zIndex: 10 }} />
           </div>
         </div>
 
@@ -607,20 +607,20 @@ function Projects() {
                     marginBottom: "1.25rem", 
                     border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.1)" : "#eee"}`,
                     background: "#f9f9f9",
-                    position: "relative" // Added
+                    position: "relative"
                   }}>
-                    <img 
-                      src={p.image} 
-                      alt={p.name} 
-                      draggable={false}
+                    {/* Using backgroundImage to prevent browser visual search overlays */}
+                    <div 
+                      role="img"
+                      aria-label={p.name}
                       style={{ 
-                        width: "100%", height: "100%", objectFit: "cover",
-                        pointerEvents: "none",
+                        width: "100%", height: "100%", 
+                        backgroundImage: `url(${p.image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
                         userSelect: "none"
                       }} 
                     />
-                    {/* Shield to block browser-added hover buttons */}
-                    <div style={{ position: "absolute", inset: 0, zIndex: 10 }} />
                   </div>
                 )}
 
