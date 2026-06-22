@@ -27,7 +27,7 @@ const PROJECTS = [
     year: "2026",
     desc: "Built the Mental Health and Physical Assessment modules for a full-stack MERN healthcare platform — featuring dynamic recommendations based on user results, USDA FoodData Central API integration for nutritional search, and YouTube API for health content delivery.",
     stack: ["MongoDB", "Express", "React", "Node.js"],
-    accent: "#EC4899",
+    accent: "#6366F1",
     size: "medium",
     github: "https://github.com/Ramidu-Theekshana/VitaSense-Health_Care_System",
     live: "https://vita-sense-health-care-system.vercel.app/",
@@ -40,7 +40,7 @@ const PROJECTS = [
     year: "2025",
     desc: "End-to-end vehicle service center system managing customer records, service bookings, appointment tracking, and inventory — built with a Spring Boot REST backend and React frontend, persisted to MySQL.",
     stack: ["Spring Boot", "React", "MySQL"],
-    accent: "#F59E0B",
+    accent: "#6366F1",
     size: "medium",
     github: "https://github.com/SithmiNavodya/vehicle-service-center",
     live: null,
@@ -53,7 +53,7 @@ const PROJECTS = [
     year: "2025",
     desc: "Full-stack MERN application for tea factory operations — covers warehouse and inventory management with real-time stock tracking, automated report generation, and an internal messaging workflow for team communication.",
     stack: ["MongoDB", "Express", "React", "Node.js"],
-    accent: "#10B981",
+    accent: "#6366F1",
     size: "medium",
     github: "https://github.com/Ramidu-Theekshana/Smart-Tea-Factory-Management-System",
     live: null,
@@ -66,11 +66,11 @@ const PROJECTS = [
     year: "2025",
     desc: "Built the Order Management and Discount Handling modules for a JSP/Servlets MVC system — featuring full CRUD operations and a Tailwind CSS interface to improve user experience.",
     stack: ["Java", "JSP/Servlets", "Tailwind CSS", "MySQL"],
-    accent: "#06B6D4",
+    accent: "#6366F1",
     size: "medium",
     github: null,
     live: null,
-    image: "https://via.placeholder.com/600x400?text=Laundry+Management+System",
+    image: null,
   },
 ];
 
@@ -658,22 +658,24 @@ function Projects() {
               }}>{p.name}</h3>
 
               {/* Project Screenshot */}
-              <div style={{
-                width: "100%", height: 180, borderRadius: 12, overflow: "hidden",
-                marginBottom: "1rem", border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.15)" : "#eee"}`,
-                background: "#f9f9f9"
-              }}>
-                <img 
-                  src={p.image} 
-                  alt={p.name} 
-                  style={{ 
-                    width: "100%", 
-                    height: "100%", 
-                    objectFit: "cover",
-                    objectPosition: "center"
-                  }} 
-                />
-              </div>
+              {p.image && (
+                <div style={{
+                  width: "100%", height: 180, borderRadius: 12, overflow: "hidden",
+                  marginBottom: "1rem", border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.15)" : "#eee"}`,
+                  background: "#f9f9f9"
+                }}>
+                  <img 
+                    src={p.image} 
+                    alt={p.name} 
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "cover",
+                      objectPosition: "center"
+                    }} 
+                  />
+                </div>
+              )}
 
               <p style={{
                 fontFamily: "'DM Sans',sans-serif", fontSize: 13, lineHeight: 1.65,
