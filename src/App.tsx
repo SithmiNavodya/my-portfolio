@@ -18,6 +18,7 @@ const PROJECTS = [
     size: "large",
     github: "https://github.com/Ramidu-Theekshana/DocLink-healthcare-platform",
     live: null,
+    image: "https://via.placeholder.com/1200x700?text=DocLink+Healthcare+Platform",
   },
   {
     id: "02",
@@ -29,7 +30,8 @@ const PROJECTS = [
     accent: "#EC4899",
     size: "medium",
     github: "https://github.com/Ramidu-Theekshana/VitaSense-Health_Care_System",
-    live: "https://vita-sense-health-care-system.vercel.app/", // Added placeholder deployment link
+    live: "https://vita-sense-health-care-system.vercel.app/",
+    image: "https://via.placeholder.com/600x400?text=VitaSense+Healthcare+App",
   },
   {
     id: "03",
@@ -42,6 +44,7 @@ const PROJECTS = [
     size: "medium",
     github: "https://github.com/SithmiNavodya/vehicle-service-center",
     live: null,
+    image: "https://via.placeholder.com/600x400?text=Vehicle+Service+System",
   },
   {
     id: "04",
@@ -54,20 +57,20 @@ const PROJECTS = [
     size: "medium",
     github: "https://github.com/Ramidu-Theekshana/Smart-Tea-Factory-Management-System",
     live: null,
+    image: "https://via.placeholder.com/600x400?text=Tea+Factory+System",
   },
-  
-
   {
     id: "05",
     name: "Laundry Management System",
     tag: "Java MVC · Academic",
     year: "2025",
-    desc: "Built the Order Management and Discount Handling modules for a JSP/Servlets MVC system — featuring full CRUD operations and a Tailwind CSS interface.",
+    desc: "Built the Order Management and Discount Handling modules for a JSP/Servlets MVC system — featuring full CRUD operations and a Tailwind CSS interface to improve user experience.",
     stack: ["Java", "JSP/Servlets", "Tailwind CSS", "MySQL"],
     accent: "#06B6D4",
     size: "medium",
     github: null,
     live: null,
+    image: "https://via.placeholder.com/600x400?text=Laundry+Management+System",
   },
 ];
 
@@ -567,6 +570,16 @@ function Projects() {
                 color: hov==="01" ? "#fff" : "#0F0F0E",
                 margin:"0 0 1rem", lineHeight:1.15, letterSpacing:"-0.8px",
               }}>{big.name}</h3>
+
+              {/* Project Screenshot */}
+              <div style={{
+                width: "100%", height: 240, borderRadius: 16, overflow: "hidden",
+                marginBottom: "1.5rem", border: `1px solid ${hov === "01" ? "rgba(255,255,255,0.1)" : "#eee"}`,
+                background: hov === "01" ? "rgba(255,255,255,0.05)" : "#f9f9f9"
+              }}>
+                <img src={big.image} alt={big.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+
               <p style={{
                 fontFamily: "'DM Sans',sans-serif", fontSize: 15, lineHeight: 1.75,
                 color: hov === "01" ? "rgba(255,255,255,0.6)" : "#777",
@@ -643,6 +656,16 @@ function Projects() {
                 color: hov===p.id ? "#fff" : "#0F0F0E",
                 margin:"0 0 0.6rem", lineHeight:1.25, letterSpacing:"-0.3px",
               }}>{p.name}</h3>
+
+              {/* Project Screenshot */}
+              <div style={{
+                width: "100%", height: 140, borderRadius: 12, overflow: "hidden",
+                marginBottom: "1rem", border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.15)" : "#eee"}`,
+                background: hov === p.id ? "rgba(255,255,255,0.1)" : "#f9f9f9"
+              }}>
+                <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+
               <p style={{
                 fontFamily: "'DM Sans',sans-serif", fontSize: 13, lineHeight: 1.65,
                 color: hov === p.id ? "rgba(255,255,255,0.75)" : "#888",
