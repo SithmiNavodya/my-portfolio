@@ -577,7 +577,7 @@ function Projects() {
                 marginBottom: "1.5rem", border: `1px solid ${hov === "01" ? "rgba(255,255,255,0.1)" : "#eee"}`,
                 background: hov === "01" ? "rgba(255,255,255,0.05)" : "#f9f9f9"
               }}>
-                <img src={big.image} alt={big.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src={big.image || undefined} alt={big.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
 
               <p style={{
@@ -702,29 +702,6 @@ function Projects() {
                     fontFamily: "monospace", fontSize: 11, fontWeight: 700,
                     display: "flex", alignItems: "center", gap: 5,
                     borderBottom: `1.2px solid ${hov === p.id ? "rgba(255,255,255,0.4)" : `rgba(99,102,241,0.2)`}`,
-                    paddingBottom: 1, transition: "all 0.2s"
-                  }}>
-                    ✦ Live Demo
-                  </a>
-                )}
-              </div>
-
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-                {p.stack.map(s => (
-                  <span key={s} style={{
-                    background: hov===p.id ? "rgba(255,255,255,0.15)" : "#F8F8F6",
-                    border:`1px solid ${hov===p.id ? "rgba(255,255,255,0.2)" : "#E8E5E0"}`,
-                    borderRadius:4, padding:"2px 9px", fontSize:10,
-                    fontFamily:"monospace", color: hov===p.id ? "#fff" : "#666", fontWeight:700,
-                  }}>{s}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-                    textDecoration: "none", color: hov === p.id ? "#fff" : p.accent,
-                    fontFamily: "monospace", fontSize: 11, fontWeight: 700,
-                    display: "flex", alignItems: "center", gap: 5,
-                    borderBottom: `1.2px solid ${hov === p.id ? "rgba(255,255,255,0.4)" : `${p.accent}40`}`,
                     paddingBottom: 1, transition: "all 0.2s"
                   }}>
                     ✦ Live Demo
