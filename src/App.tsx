@@ -282,6 +282,8 @@ function Home({ go }: { go: (p: Page) => void }) {
                 userSelect: "none"
               }} 
             />
+            {/* Shield to block browser-added hover buttons */}
+            <div style={{ position: "absolute", inset: 0, zIndex: 10 }} />
           </div>
 
           {/* Dashed orbit ring */}
@@ -406,6 +408,8 @@ function About() {
                 userSelect: "none"
               }} 
             />
+            {/* Shield to block browser-added hover buttons */}
+            <div style={{ position: "absolute", inset: 0, zIndex: 10 }} />
           </div>
         </div>
 
@@ -602,7 +606,8 @@ function Projects() {
                     borderRadius: 14, overflow: "hidden",
                     marginBottom: "1.25rem", 
                     border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.1)" : "#eee"}`,
-                    background: "#f9f9f9"
+                    background: "#f9f9f9",
+                    position: "relative" // Added
                   }}>
                     <img 
                       src={p.image} 
@@ -610,10 +615,12 @@ function Projects() {
                       draggable={false}
                       style={{ 
                         width: "100%", height: "100%", objectFit: "cover",
-                        pointerEvents: "none", // Removes browser-added edit/search buttons
+                        pointerEvents: "none",
                         userSelect: "none"
                       }} 
                     />
+                    {/* Shield to block browser-added hover buttons */}
+                    <div style={{ position: "absolute", inset: 0, zIndex: 10 }} />
                   </div>
                 )}
 
