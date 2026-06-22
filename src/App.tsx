@@ -276,12 +276,14 @@ function Home({ go }: { go: (p: Page) => void }) {
             <div 
               role="img"
               aria-label="Sithmi Navodya"
+              data-visual-search="false"
               style={{ 
                 width: "100%", height: "100%", 
                 backgroundImage: `url(${profilePic})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                userSelect: "none"
+                userSelect: "none",
+                pointerEvents: "none"
               }} 
             />
           </div>
@@ -402,12 +404,14 @@ function About() {
             <div 
               role="img"
               aria-label="Sithmi Navodya"
+              data-visual-search="false"
               style={{ 
                 width: "100%", height: "100%", 
                 backgroundImage: `url(${profilePic})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                userSelect: "none"
+                userSelect: "none",
+                pointerEvents: "none"
               }} 
             />
           </div>
@@ -613,12 +617,14 @@ function Projects() {
                     <div 
                       role="img"
                       aria-label={p.name}
+                      data-visual-search="false"
                       style={{ 
                         width: "100%", height: "100%", 
                         backgroundImage: `url(${p.image})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        userSelect: "none"
+                        userSelect: "none",
+                        pointerEvents: "none"
                       }} 
                     />
                   </div>

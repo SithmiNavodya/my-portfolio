@@ -1,0 +1,11 @@
+/* Disable Edge/Browser Visual Search and Hover Menus */
+img, div[role="img"] {
+    visual-search-override: hidden !important;
+    -ms-visual-search: hidden !important;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
