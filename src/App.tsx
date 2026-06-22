@@ -57,7 +57,7 @@ const PROJECTS = [
     size: "medium",
     github: "https://github.com/Ramidu-Theekshana/Smart-Tea-Factory-Management-System",
     live: null,
-    image: "/TeaFactory.jpg",
+    image: "/tea.jpg",
   },
   {
     id: "05",
