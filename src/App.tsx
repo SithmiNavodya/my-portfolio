@@ -260,7 +260,7 @@ function Nav({ page, go }: { page: Page; go: (p: Page) => void }) {
             width: 100%;
           }
 
-          .orbit-ring,
+          .orbit-pill,
           .cursor-glow {
             display: none !important;
           }
@@ -505,7 +505,7 @@ function Home({ go }: { go: (p: Page) => void }) {
             const x = Math.cos(rad) * 220;
             const y = Math.sin(rad) * 220;
             return (
-              <div key={s} style={{
+              <div key={s} className="orbit-pill" style={{
                 position:"absolute",
                 left:"50%", top:"50%",
                 transform:`translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
