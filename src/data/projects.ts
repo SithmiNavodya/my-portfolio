@@ -101,7 +101,7 @@ const projects = [
     id: '1',
     title: 'Laundry Management System',
     short: 'Academic full-stack order management system using Java and JSP/Servlets.',
-    image: 'https://via.placeholder.com/1200x700?text=Laundry+System',
+    image: '/laundry.png',
     technologies: ['Java', 'JSP', 'Servlets', 'Tailwind CSS', 'MySQL'],
     type: 'Academic Project',
     github: '',
@@ -118,7 +118,7 @@ const projects = [
       'Built discount management module'
     ],
     screenshots: [
-      'https://via.placeholder.com/1200x700?text=Laundry+1'
+      '/laundry.png'
     ]
   }
 ]

@@ -44,7 +44,7 @@ const PROJECTS = [
     size: "medium",
     github: "https://github.com/SithmiNavodya/team-weekly-report",
     live: null,
-    image: null,
+    image: "/teamwekly.png",
   },
   {
     id: "04",
@@ -83,7 +83,7 @@ const PROJECTS = [
     size: "medium",
     github: null,
     live: null,
-    image: null,
+    image: "/laundry.png",
   },
 ];
 
@@ -136,41 +136,26 @@ function Nav({ page, go }: { page: Page; go: (p: Page) => void }) {
           max-width: calc(100vw - 24px);
         }
 
-        .projects-strip {
-          display: flex !important;
-          flex-wrap: nowrap !important;
-          gap: 1rem !important;
-          overflow-x: auto !important;
-          overflow-y: hidden !important;
-          scroll-snap-type: x mandatory;
-          padding-bottom: 0.5rem;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        .projects-strip::-webkit-scrollbar {
-          height: 10px;
-        }
-
-        .projects-strip::-webkit-scrollbar-thumb {
-          background: rgba(99, 102, 241, 0.25);
-          border-radius: 999px;
-        }
-
-        .projects-strip::-webkit-scrollbar-track {
-          background: transparent;
+        .projects-grid {
+          display: grid !important;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+          gap: 1.5rem !important;
+          width: 100%;
         }
 
         .project-card {
-          flex: 0 0 360px !important;
-          width: 360px !important;
-          min-width: 360px !important;
-          max-width: 360px !important;
-          height: 680px;
-          scroll-snap-align: start;
+          width: 100% !important;
+          min-width: 0 !important;
+          max-width: 100% !important;
+          height: auto !important;
+          min-height: 570px;
+          display: flex !important;
+          flex-direction: column;
+          justify-content: space-between;
         }
 
         .project-card .project-image-slot {
-          height: 210px;
+          height: 176px;
           flex-shrink: 0;
         }
 
@@ -185,8 +170,13 @@ function Nav({ page, go }: { page: Page; go: (p: Page) => void }) {
           .contact-layout,
           .projects-header,
           .projects-stats,
-          .about-header {
+          .about-header,
+          .about-two-col {
             grid-template-columns: 1fr !important;
+          }
+
+          .about-two-col {
+            gap: 2rem !important;
           }
 
           .home-layout {
@@ -199,11 +189,12 @@ function Nav({ page, go }: { page: Page; go: (p: Page) => void }) {
           }
 
           .projects-grid {
-            gap: 0.9rem !important;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+            gap: 1.2rem !important;
           }
 
           .project-card {
-            height: 660px;
+            min-height: 520px;
           }
         }
 
@@ -282,8 +273,13 @@ function Nav({ page, go }: { page: Page; go: (p: Page) => void }) {
           .about-photo {
             width: 100% !important;
             max-width: 340px !important;
-            height: 360px !important;
+            height: 320px !important;
             margin: 0 auto;
+          }
+
+          .about-two-col {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
           }
 
           .projects-header {
@@ -295,24 +291,26 @@ function Nav({ page, go }: { page: Page; go: (p: Page) => void }) {
           }
 
           .projects-grid {
-            padding-right: 0.25rem;
+            grid-template-columns: 1fr !important;
+            padding-right: 0px;
+            gap: 1rem !important;
           }
 
           .project-card {
-            flex-basis: 86vw !important;
-            width: 86vw !important;
-            min-width: 86vw !important;
-            max-width: 86vw !important;
-            height: 640px !important;
-            padding: 1.1rem !important;
+            width: 100% !important;
+            min-width: 0 !important;
+            max-width: 100% !important;
+            height: auto !important;
+            min-height: unset !important;
+            padding: 1.2rem !important;
           }
 
           .project-card h3 {
-            font-size: 1.2rem !important;
+            font-size: 1.15rem !important;
           }
 
           .project-card p {
-            font-size: 0.92rem !important;
+            font-size: 0.9rem !important;
           }
 
           .contact-card {
@@ -624,7 +622,7 @@ function About() {
         </div>
 
         {/* ── TWO-COL ── */}
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"4rem", alignItems:"start" }}>
+        <div className="about-two-col" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"4rem", alignItems:"start" }}>
 
           {/* LEFT — education + focus areas */}
           <div style={{ animation:"fadeUp 0.6s 0.1s ease both" }}>
@@ -726,14 +724,14 @@ function Projects() {
   const [hov, setHov] = useState<string | null>(null);
 
   return (
-    <div className="projects-root page-shell" style={{ minHeight:"100vh", padding:"120px 2rem 90px", position:"relative", zIndex:1, background:"linear-gradient(180deg, rgba(248,248,246,0.72) 0%, #fff 18%, #fff 100%)" }}>
+    <div className="projects-root page-shell" style={{ minHeight:"100vh", padding:"104px 1.5rem 78px", position:"relative", zIndex:1, background:"linear-gradient(180deg, rgba(248,248,246,0.72) 0%, #fff 18%, #fff 100%)" }}>
       <div style={{ maxWidth:1200, margin:"0 auto" }}>
         <div className="projects-header" style={{
           display:"grid",
-          gridTemplateColumns:"minmax(0, 1.2fr) minmax(280px, 0.8fr)",
+          gridTemplateColumns:"minmax(0, 1fr) minmax(240px, 0.42fr)",
           gap:"1.5rem",
           alignItems:"end",
-          marginBottom:"2rem",
+          marginBottom:"1.4rem",
           animation:"fadeUp 0.6s ease both",
         }}>
           <div>
@@ -751,7 +749,7 @@ function Projects() {
               border:"1px solid rgba(99,102,241,0.16)",
               borderRadius:50,
               padding:"5px 14px",
-              marginBottom:"1rem",
+              marginBottom:"0.85rem",
             }}>
               Selected work
             </span>
@@ -762,7 +760,7 @@ function Projects() {
               color:"#0F0F0E",
               letterSpacing:"-2.8px",
               lineHeight:1,
-              margin:"0 0 1rem",
+              margin:"0 0 0.85rem",
             }}>
               Projects<span style={{ color:"#6366F1" }}>.</span>
             </h2>
@@ -774,7 +772,7 @@ function Projects() {
               maxWidth:700,
               margin:0,
             }}>
-              A focused set of full-stack systems across MERN, Spring Boot, and Java MVC, presented with cleaner visual hierarchy so each project reads like a polished case study.
+              A focused set of full-stack systems across MERN, Spring Boot, and Java MVC, arranged as a horizontal rail so the work reads more like a curated portfolio than a stacked list.
             </p>
           </div>
 
@@ -790,11 +788,10 @@ function Projects() {
           </div>
         </div>
 
-        <div className="projects-grid projects-strip" style={{ 
-          display:"flex", 
-          gridTemplateColumns:"none", 
-          gap:"1rem", 
-          alignItems: "start",
+        <div className="projects-grid" style={{ 
+          display:"grid", 
+          gridTemplateColumns:"repeat(auto-fill, minmax(320px, 1fr))", 
+          gap:"1.5rem", 
           animation:"scaleIn 0.5s 0.1s ease both" 
         }}>
           {PROJECTS.map(p => (
@@ -806,11 +803,13 @@ function Projects() {
                 background: hov===p.id ? "#0F0F0E" : "rgba(255,255,255,0.94)",
                 border:`1px solid ${hov===p.id ? "#0F0F0E" : "#ECEAE5"}`,
                 borderRadius: 24,
-                padding: "1.4rem",
+                padding: "1.15rem",
                 transition:"all 0.28s cubic-bezier(0.34,1.2,0.64,1)",
                 transform: hov===p.id ? "translateY(-4px)" : "none",
                 boxShadow: hov===p.id ? `0 24px 60px rgba(0,0,0,0.10)` : "0 10px 30px rgba(15,15,14,0.04)",
-                cursor:"default", position: "relative", overflow: "hidden"
+                cursor:"default", position: "relative", overflow: "hidden",
+                display: "flex",
+                flexDirection: "column"
               }}>
               <div style={{
                 position: "absolute",
@@ -821,14 +820,14 @@ function Projects() {
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 4, background: p.accent, opacity: 0.9 }} />
 
               <div style={{ position: "relative", zIndex: 1 }}>
-                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:"1rem", marginBottom: "0.9rem" }}>
+                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:"0.85rem", marginBottom: "0.75rem" }}>
                   <div>
                     <span style={{ 
                       display:"inline-flex",
                       fontFamily:"monospace", fontSize:10, fontWeight:700, 
                       color: hov===p.id ? "rgba(255,255,255,0.45)" : "#999", 
                       textTransform:"uppercase", letterSpacing:"0.12em",
-                      marginBottom:"0.45rem"
+                      marginBottom:"0.4rem"
                     }}>
                       {p.id} · {p.year}
                     </span>
@@ -837,7 +836,7 @@ function Projects() {
                       fontSize: 18, 
                       fontWeight:800,
                       color: hov===p.id ? "#fff" : "#0F0F0E",
-                      margin:"0 0 0.5rem", lineHeight:1.15, letterSpacing: "-0.4px",
+                      margin:"0", lineHeight:1.15, letterSpacing: "-0.4px",
                       maxWidth: 780,
                       display: "-webkit-box",
                       WebkitLineClamp: 3,
@@ -862,7 +861,7 @@ function Projects() {
                   width: "100%",
                   borderRadius: 16,
                   overflow: "hidden",
-                    marginBottom: "0.95rem",
+                  marginBottom: "0.8rem",
                   border: `1px solid ${hov === p.id ? "rgba(255,255,255,0.1)" : "#eee"}`,
                   background: hov === p.id ? "rgba(255,255,255,0.05)" : "#F9F9F9",
                   position: "relative"
@@ -885,7 +884,7 @@ function Projects() {
                     <div style={{
                       width: "100%",
                       height: "100%",
-                      minHeight: 210,
+                        minHeight: 176,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -911,7 +910,7 @@ function Projects() {
                       <p style={{
                         margin: 0,
                         fontFamily: "'DM Sans',sans-serif",
-                        fontSize: 13,
+                        fontSize: 12.5,
                         fontWeight: 700,
                         color: "#5A5856",
                         textAlign: "center",
@@ -931,18 +930,18 @@ function Projects() {
 
                 <p style={{
                   fontFamily: "'DM Sans',sans-serif", 
-                  fontSize: 13.25, 
-                  lineHeight: 1.65,
+                  fontSize: 13,
+                  lineHeight: 1.6,
                   color: hov === p.id ? "rgba(255,255,255,0.72)" : "#666",
-                  margin: "0 0 0.95rem",
+                  margin: "0 0 0.8rem",
                   maxWidth: "none",
                   display: "-webkit-box",
-                  WebkitLineClamp: 4,
+                  WebkitLineClamp: 3,
                   WebkitBoxOrient: "vertical",
                   overflow: "hidden",
                 }}>{p.desc}</p>
 
-                <div style={{ display: "flex", gap: "0.85rem", marginBottom: "0.9rem", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: "0.75rem", marginBottom: "0.8rem", flexWrap: "wrap" }}>
                   {p.github && (
                     <a href={p.github} target="_blank" rel="noreferrer" style={{
                       textDecoration: "none", color: hov === p.id ? "#fff" : "#6366F1",
@@ -967,7 +966,7 @@ function Projects() {
                   )}
                 </div>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
                   {p.stack.map(s => (
                     <span key={s} style={{
                       background: hov===p.id ? "rgba(255,255,255,0.12)" : "#F8F8F6",
