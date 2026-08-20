@@ -258,9 +258,13 @@ function Nav({ page, go }: { page: Page; go: (p: Page) => void }) {
 
           .home-visual {
             width: 100%;
+            margin-top: 2rem !important;
+            padding-bottom: 2rem;
           }
 
           .orbit-pill,
+          .orbit-dashed,
+          .orbit-projects-badge,
           .cursor-glow {
             display: none !important;
           }
@@ -493,7 +497,7 @@ function Home({ go }: { go: (p: Page) => void }) {
           </div>
 
           {/* Dashed orbit ring */}
-          <div style={{
+          <div className="orbit-dashed" style={{
             position:"absolute", width:440, height:440, borderRadius:"50%",
             border:"1.5px dashed rgba(99,102,241,0.2)",
           }} />
@@ -526,7 +530,7 @@ function Home({ go }: { go: (p: Page) => void }) {
           })}
 
           {/* Projects card — top right */}
-          <div style={{
+          <div className="orbit-projects-badge" style={{
             position:"absolute", top:-10, right:-30,
             background:"linear-gradient(135deg,#6366F1,#8B5CF6)", borderRadius:14, padding:"12px 18px",
             boxShadow:"0 12px 32px rgba(99,102,241,0.3)", zIndex:3,
