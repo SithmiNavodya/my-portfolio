@@ -258,13 +258,43 @@ function Nav({ page, go }: { page: Page; go: (p: Page) => void }) {
 
           .home-visual {
             width: 100%;
-            margin-top: 2rem !important;
+            margin-top: 10rem !important;
             padding-bottom: 2rem;
+            --orbit-radius: 125px;
           }
 
-          .orbit-pill,
-          .orbit-dashed,
-          .orbit-projects-badge,
+          .orbit-ring {
+            width: 120px !important;
+            height: 120px !important;
+            border-width: 4px !important;
+          }
+
+          .orbit-dashed {
+            width: 250px !important;
+            height: 250px !important;
+          }
+
+          .orbit-pill div {
+            font-size: 9.5px !important;
+            padding: 4px 11px !important;
+          }
+
+          .orbit-projects-badge {
+            top: -15px !important;
+            right: -15px !important;
+            padding: 8px 12px !important;
+            border-radius: 10px !important;
+          }
+
+          .orbit-projects-badge p:first-child {
+            font-size: 8px !important;
+            margin-bottom: 2px !important;
+          }
+
+          .orbit-projects-badge p:last-child {
+            font-size: 16px !important;
+          }
+
           .cursor-glow {
             display: none !important;
           }
@@ -506,13 +536,13 @@ function Home({ go }: { go: (p: Page) => void }) {
           {orbitSkills.map((s, i) => {
             const angle = (360 / orbitSkills.length) * i;
             const rad = (angle * Math.PI) / 180;
-            const x = Math.cos(rad) * 220;
-            const y = Math.sin(rad) * 220;
+            const cosVal = Math.cos(rad);
+            const sinVal = Math.sin(rad);
             return (
               <div key={s} className="orbit-pill" style={{
                 position:"absolute",
                 left:"50%", top:"50%",
-                transform:`translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                transform:`translate(calc(-50% + ${cosVal} * var(--orbit-radius, 220px)), calc(-50% + ${sinVal} * var(--orbit-radius, 220px)))`,
                 zIndex:3,
               }}>
                 <div style={{
